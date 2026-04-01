@@ -1,0 +1,204 @@
+# SiteMonitor property (formerly ping) allows you to monitor the availability of a URL and have the response time displayed
+
+
+- Storage:
+    - ProxMox:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/proxmox-light.svg
+        href: {{HOMEPAGE_VAR_URL_PROXMOX}}
+        siteMonitor: {{HOMEPAGE_VAR_URL_PROXMOX}}
+        widget:
+            type: proxmox
+            url: {{HOMEPAGE_VAR_URL_PROXMOX}}
+            username: {{HOMEPAGE_VAR_USER_PROXMOX}} 
+            password: {{HOMEPAGE_VAR_PASS_PROXMOX}} 
+            node: proxmox
+
+    - HASSIO Pi4:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/home-assistant-light.svg
+        href: {{HOMEPAGE_VAR_URL_HASSIO}} 
+        siteMonitor: {{HOMEPAGE_VAR_URL_HASSIO}} 
+        #description: Raspberry Pi4
+        widget:
+            # create a dedicated Home Assistant user just for Homepage
+            # give that user the least privilege you can
+            # use a long-lived token from that dedicated account
+            type: homeassistant
+            url: {{HOMEPAGE_VAR_URL_HASSIO}} 
+            key: {{HOMEPAGE_VAR_KEY_HASSIO}}
+            custom:
+                - state: sensor.processor_use
+                  label: CPU
+                - state: sensor.memory_use_percent
+                  label: RAM
+                - state: sensor.processor_temperature
+                  label: Temperatur 
+
+    - TrueNAS PROD:
+        id: truenas-prod
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/truenas-scale-light.svg
+        href: {{HOMEPAGE_VAR_URL_TN_PROD}} 
+        siteMonitor: {{HOMEPAGE_VAR_URL_TN_PROD}} 
+        widget:
+            type: truenas
+            url: {{HOMEPAGE_VAR_URL_TN_PROD}} 
+            username: {{HOMEPAGE_VAR_USER_TN_PROD}} 
+            password: {{HOMEPAGE_VAR_PASS_TN_PROD}} 
+            version: 2
+            enablePools: true
+            nasType: scale
+    - TrueNAS DR:
+        id: truenas-dr
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/truenas-scale-light.svg
+        href: {{HOMEPAGE_VAR_URL_TN_DR}} 
+        siteMonitor: {{HOMEPAGE_VAR_URL_TN_DR}} 
+        widget:
+            type: truenas
+            url: {{HOMEPAGE_VAR_URL_TN_DR}} 
+            username: {{HOMEPAGE_VAR_USER_TN_DR}} 
+            password: {{HOMEPAGE_VAR_PASS_TN_DR}} 
+            version: 2
+            enablePools: true
+            nasType: scale         
+
+- Network:    
+    - NGINX Proxy:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/nginx-proxy-manager-light.svg
+        href: {{HOMEPAGE_VAR_URL_NGINX}}
+        siteMonitor: {{HOMEPAGE_VAR_URL_NGINX}}
+        #statusStyle: 'dot'
+        widget:
+            type: npm
+            url: {{HOMEPAGE_VAR_URL_NGINX}}
+            username: {{HOMEPAGE_VAR_USER_NGINX}}
+            password: {{HOMEPAGE_VAR_PASS_NGINX}}
+    - UptimeKuma - External:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/uptime-kuma-light.svg
+        href: {{HOMEPAGE_VAR_URL_KUMA}}
+        siteMonitor: {{HOMEPAGE_VAR_URL_KUMA}}
+        widget:
+            type: uptimekuma
+            url: {{HOMEPAGE_VAR_URL_KUMA}}
+            slug: monitor
+    - Telekom:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/speedtest-light.svg
+        href: {{HOMEPAGE_VAR_URL_TELE}}
+        ping: {{HOMEPAGE_VAR_URL_TELE}}       
+        widget:
+            type: fritzbox
+            url: {{HOMEPAGE_VAR_URL_TELE}}
+            fields: ["connectionStatus","down", "up"]
+        
+    - Speedtest:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/speedtest-tracker-light.svg
+        href: {{HOMEPAGE_VAR_URL_ST}}       
+        siteMonitor: {{HOMEPAGE_VAR_URL_ST}}  
+        widget:
+            type: speedtest
+            url: {{HOMEPAGE_VAR_URL_ST}}    
+            version: 2 # optional, default is 1
+            key: {{HOMEPAGE_VAR_KEY_ST}} # required for version 2
+            bitratePrecision: 0 # optional, default is 0
+
+    - AdGuard:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/adguard-home-light.svg
+        href: {{HOMEPAGE_VAR_URL_HASSIO}}                
+        widget:
+            # create a dedicated Home Assistant user just for Homepage
+            # give that user the least privilege you can
+            # use a long-lived token from that dedicated account
+            type: homeassistant
+            url: {{HOMEPAGE_VAR_URL_HASSIO}} 
+            key: {{HOMEPAGE_VAR_KEY_HASSIO}}
+            custom:
+                - state: sensor.adguard_home_dns_queries
+                  label: DNS
+                - state: sensor.adguard_home_dns_queries_blocked
+                  label: Blocked
+                - state: sensor.adguard_home_parental_control_blocked
+                  label: Jugendschutz
+                - state: sensor.adguard_home_safe_browsing_blocked
+                  label: Safe Browsing 
+
+- Utilities:
+    - Codeserver:
+        href: {{HOMEPAGE_VAR_URL_CODESERVER}}  
+        description: VS Codeserver
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/visual-studio-code-light.svg
+    
+    - Dozzle:
+        href: {{HOMEPAGE_VAR_URL_DOZZLE}} 
+        description: Docker Logs
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/dozzle-light.svg
+
+    - Dockpeek:
+        href: {{HOMEPAGE_VAR_URL_DOCKPEEK}} 
+        description: Docker Container Viewer
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/dockpeek-light.svg
+
+    - Portracker:
+        href: {{HOMEPAGE_VAR_URL_PORTRACKER}}
+        description: Real-Time Port Monitor
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/portracker-light.svg   
+
+- Media:
+    - Tube Archivist:
+        href: {{HOMEPAGE_VAR_URL_TUBA}} 
+        siteMonitor: {{HOMEPAGE_VAR_URL_TUBA}}  
+        widget:
+          type: tubearchivist
+          url: {{HOMEPAGE_VAR_URL_TUBA}} 
+          key: {{HOMEPAGE_VAR_KEY_TUBA}} 
+
+    - immich:
+        href: {{HOMEPAGE_VAR_URL_IMMICH}} 
+        siteMonitor:  {{HOMEPAGE_VAR_URL_IMMICH}}    
+        widget:
+          type: immich
+          url: {{HOMEPAGE_VAR_URL_IMMICH}} 
+          key: {{HOMEPAGE_VAR_KEY_IMMICH}} 
+          version: 2 # optional, default is 1
+
+    - jellyfin:
+        href: {{HOMEPAGE_VAR_URL_JELLYFIN}} 
+        siteMonitor: {{HOMEPAGE_VAR_URL_JELLYFIN}}     
+        widget:
+          type: jellyfin
+          url: {{HOMEPAGE_VAR_URL_JELLYFIN}} 
+          key: {{HOMEPAGE_VAR_KEY_JELLYFIN}} 
+          version: 2 # optional, default is 1
+          enableBlocks: true # optional, defaults to false
+          enableNowPlaying: true # optional, defaults to true
+          enableUser: true # optional, defaults to false
+          enableMediaControl: false # optional, defaults to true
+          showEpisodeNumber: true # optional, defaults to false
+          expandOneStreamToTwoRows: false # optional, defaults to true
+
+- Services:
+    - Readeck:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/readeck-light.svg
+        href: {{HOMEPAGE_VAR_URL_READECK}}  
+        description: Bookmark Read Later
+        siteMonitor: {{HOMEPAGE_VAR_URL_READECK}} 
+        statusStyle: 'dot'
+
+    - BentoPDF:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/bentopdf-light.svg
+        href: {{HOMEPAGE_VAR_URL_PDF}} 
+        description: PDF Swiss Army Knife
+        siteMonitor: {{HOMEPAGE_VAR_URL_PDF}}
+        statusStyle: 'dot'
+
+    - Bichon:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/bichon-light.svg
+        href: {{HOMEPAGE_VAR_URL_BICHON}} 
+        description: Mail Archiver
+        siteMonitor: {{HOMEPAGE_VAR_URL_BICHON}} 
+        statusStyle: 'dot'
+
+    - MeTube:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/metube-light.svg
+        href: {{HOMEPAGE_VAR_URL_METUBE}} 
+        description: YT Downloader
+        siteMonitor: {{HOMEPAGE_VAR_URL_METUBE}} 
+        statusStyle: 'dot'
+                
