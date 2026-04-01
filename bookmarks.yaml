@@ -1,0 +1,45 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Tools:
+    - Tailscale Admin:
+        - icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/tailscale-light.svg
+          href: https://login.tailscale.com/admin/machines
+    - Self-Hosted Icon:
+        - icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/selfh-st-light.svg
+          href: https://selfh.st/icons/
+
+    
+    
+- Development:
+
+    - Docker Hub:
+        - icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/docker-light.svg
+          href: https://hub.docker.com/
+    - Github:
+        - icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/github-light.svg
+          href: https://github.com/
+
+    
+- Entertainment:
+
+    - Reddit:
+        - abbr: RE
+          icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/reddit-light.svg
+          href: https://reddit.com/
+    - YouTube:
+        - abbr: YT
+          icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/youtube-light.svg
+          href: https://youtube.com/
+- Shopping:
+    - MyDealz:
+        - abbr: MD
+          #icon: https://www.mydealz.de/favicon.ico
+          href: https://www.mydealz.de/
+    
+- Lifestyle:
+    - Mixcloud:
+        - abbr: MC          
+          href: https://www.mixcloud.com/
+    
