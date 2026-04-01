@@ -1,0 +1,19 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/settings/
+
+
+fullWidth: true
+maxGroupColumns: 5
+
+layout:
+  Storage:        
+    style: columns
+  Network:
+    style: columns   
+  Utilities:
+    style: columns   
+  Media:
+    style: columns  
+  Services:
+    style: columns
