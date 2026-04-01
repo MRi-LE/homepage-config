@@ -1,5 +1,5 @@
 # homepage-config
-Personal collection of config files for Homepage (gethomepage/homepage)
+Personal collection of config files for [gethomepage / homepage](https://github.com/gethomepage/homepage) 
 
 Dark Theme
 <img width="1693" height="578" alt="image" src="https://github.com/user-attachments/assets/5d0939e5-9369-4499-a042-295e4c575018" />
