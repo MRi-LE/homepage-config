@@ -1,0 +1,65 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/info-widgets/
+
+## search / date & time are always right aligned
+
+- search:
+    provider: google # google, duckduckgo, bing, baidu, brave or custom
+    focus: true # Optional, will set focus to the search bar on page load
+    showSearchSuggestions: true # Optional, will show search suggestions. Defaults to false
+    target: _blank # One of _self, _blank, _parent or _top
+
+- datetime:
+    text_size: xl
+    locale: de
+    format:
+        
+        dateStyle: short
+        timeStyle: short
+
+## custom part -  FIFO listing ##
+
+## glance must be installed on TN to work ##
+
+
+
+- glances:
+    label: TrueNAS PROD
+    url: {{HOMEPAGE_VAR_URL_GLANCE_TN-PROD}}
+    username: homepage
+    password: {{HOMEPAGE_VAR_PASS_GLANCE_TN-PROD}}
+    version: 4
+    cpu: true
+    mem: true
+    uptime: true
+    disk: /
+    expanded: false
+
+- glances:
+    label: TrueNAS DR
+    url: {{HOMEPAGE_VAR_URL_GLANCE_TN-DR}}
+    username: homepage
+    password: {{HOMEPAGE_VAR_PASS_GLANCE_TN-DR}}
+    version: 4
+    cpu: true
+    mem: true
+    uptime: true
+    disk: /
+    expanded: false
+
+
+## misc. items like greeting logos + weblinks ##
+
+- greeting:
+    text_size: x3
+    text: '#MRi-LE'
+    href: https://michaelrichter.online/blog/
+
+
+
+- logo:
+    icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/chatgpt-light.svg
+    href: https://chatgpt.com/
+    target: _blank
+
