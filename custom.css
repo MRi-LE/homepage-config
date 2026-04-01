@@ -1,0 +1,12 @@
+.information-widget-logo,
+.information-widget-logo svg,
+.information-widget-logo img {
+  width: 48px;
+  height: 48px;
+}
+
+
+/* keep it white in dark/light mode */
+div[class*="text-emerald"] {
+  color: white !important;
+}
